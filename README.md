@@ -90,3 +90,9 @@ Ans: In React, a parent component can send data to a child component using props
 For example, `App.tsx` sends `technology`, `isAdded`, and `onAddToStack` to the `TechCard` component.
 If the child needs to communicate with the parent, the parent can pass a function as a prop. The child can then call that function when something happens.
 For example, when the user clicks "Add to Stack", the `TechCard` component calls `onAddToStack(technology)`. This function runs in the parent component and updates the stack.
+
+
+## 📤 Live Demo
+
+- **GitHub Repository:** https://github.com/Kowshikkantidasbd/dev-stack
+- **Live Site:** https://dev-stack-black.vercel.app/

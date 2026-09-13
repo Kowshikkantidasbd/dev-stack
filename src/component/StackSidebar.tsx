@@ -3,28 +3,28 @@ import { X } from 'lucide-react';
 import { StackItem } from '../types';
 
 
-// StackSidebar এর Props
+
 interface StackSidebarProps {
 
-  // User যেসব technology select করেছে
+  
   stack: StackItem[];
 
-  // একটি technology remove করার function
+  
   onRemoveItem: (id: string) => void;
 
-  // সব technology একসাথে remove করার function
+  
   onRemoveAll: () => void;
 }
 
 
-// Stack Sidebar Component
+
 export const StackSidebar: React.FC<StackSidebarProps> = ({
   stack,
   onRemoveItem,
   onRemoveAll,
 }) => {
 
-  // মোট কয়টি technology selected আছে
+  
   const selectedCount = stack.length;
 
 
@@ -43,9 +43,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
     >
 
 
-      {/* ==================================================
-          HEADER
-      ================================================== */}
+      
 
       <div>
 
@@ -79,15 +77,13 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
 
 
 
-      {/* ==================================================
-          STACK CONTENT
-      ================================================== */}
+      
 
       <div>
 
         {selectedCount === 0 ? (
 
-          // যদি কোনো technology select করা না থাকে
+          
           <div
             id="empty-stack-view"
             className="
@@ -119,13 +115,11 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
 
         ) : (
 
-          // যদি technology select করা থাকে
+          
           <div>
 
 
-            {/* ==================================================
-                SELECTED TECHNOLOGIES LIST
-            ================================================== */}
+            
 
             <div
               id="stack-items-list"
@@ -157,10 +151,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
                 >
 
 
-                  {/* ==================================================
-                      LEFT SIDE
-                      Icon + Name + Category
-                  ================================================== */}
+                  
 
                   <div
                     className="
@@ -171,7 +162,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
                     "
                   >
 
-                    {/* Technology Icon */}
+                    
 
                     <div
                       className="
@@ -193,7 +184,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
                         loading="lazy"
                         referrerPolicy="no-referrer"
 
-                        // Image load না হলে image hide হবে
+                        
                         onError={(e) => {
                           const target = e.currentTarget;
                           target.style.display = 'none';
@@ -203,7 +194,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
                     </div>
 
 
-                    {/* Technology Name + Category */}
+
 
                     <div className="min-w-0">
 
@@ -237,9 +228,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
 
 
 
-                  {/* ==================================================
-                      REMOVE SINGLE ITEM BUTTON
-                  ================================================== */}
+                  
 
                   <button
                     id={`remove-item-btn-${item.id}`}
@@ -275,9 +264,7 @@ export const StackSidebar: React.FC<StackSidebarProps> = ({
 
 
 
-            {/* ==================================================
-                REMOVE ALL BUTTON
-            ================================================== */}
+
 
             <button
               id="remove-all-btn"

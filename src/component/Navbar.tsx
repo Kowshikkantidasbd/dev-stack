@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
   
   const [activeLink, setActiveLink] = useState<string | null>(null);
 
-  // Controls whether the mobile dropdown menu is open
+  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
 
@@ -29,11 +29,11 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-18">
 
 
-          {/* Left side: hamburger (mobile only) + logo, grouped together and pinned left */}
+          
 
           <div className="flex items-center gap-2 sm:gap-3">
 
-            {/*menu icon - only visible below lg, now clickable */}
+            
 
             <div className="flex items-center lg:hidden">
 
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
           </div>
 
 
-          {/* Desktop*/}
+          
 
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium select-none">
 

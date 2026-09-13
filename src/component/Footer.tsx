@@ -20,9 +20,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
 
-        {/* ==================================================
-            MOBILE FOOTER
-        ================================================== */}
+        
 
         <div
           className="
@@ -72,7 +70,7 @@ export const Footer: React.FC = () => {
           </div>
 
 
-          {/* Description */}
+          
 
           <p
             className="
@@ -138,7 +136,7 @@ export const Footer: React.FC = () => {
           </div>
 
 
-          {/* Mobile Bottom Bar */}
+          
 
           <div
             className="
@@ -176,13 +174,11 @@ export const Footer: React.FC = () => {
 
 
 
-        {/* ==================================================
-            DESKTOP FOOTER
-        ================================================== */}
+        
 
         <div className="hidden md:block">
 
-          {/* Main Footer Content */}
+          
 
           <div
             className="
@@ -196,12 +192,14 @@ export const Footer: React.FC = () => {
             "
           >
 
+            
 
-            {/* ================= LOGO + DESCRIPTION ================= */}
+
+            
 
             <div className="lg:col-span-5 space-y-4">
 
-              {/* Logo */}
+             
 
               <div className="flex items-center gap-2.5">
 
@@ -237,7 +235,7 @@ export const Footer: React.FC = () => {
               </div>
 
 
-              {/* Description */}
+              
 
               <p
                 className="
@@ -252,7 +250,7 @@ export const Footer: React.FC = () => {
               </p>
 
 
-              {/* Social Links */}
+              
 
               <div
                 className="
@@ -298,7 +296,7 @@ export const Footer: React.FC = () => {
 
 
 
-            {/* ================= PRODUCT ================= */}
+            
 
             <div className="lg:col-span-2 space-y-4">
 
@@ -340,7 +338,7 @@ export const Footer: React.FC = () => {
 
 
 
-            {/* ================= COMPANY ================= */}
+            
 
             <div className="lg:col-span-2 space-y-4">
 
@@ -382,7 +380,7 @@ export const Footer: React.FC = () => {
 
 
 
-            {/* ================= LEGAL ================= */}
+            
 
             <div className="lg:col-span-3 space-y-4">
 
@@ -420,7 +418,7 @@ export const Footer: React.FC = () => {
 
 
 
-          {/* ================= BOTTOM BAR ================= */}
+          
 
           <div
             className="

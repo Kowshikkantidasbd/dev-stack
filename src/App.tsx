@@ -14,50 +14,33 @@ import { StackSidebar } from './component/StackSidebar';
 import { Footer } from './component/Footer';
 
 
-// ==================================================
-// APP COMPONENT
-// ==================================================
+
 
 export default function App() {
 
 
-  // --------------------------------------------------
-  // Technologies
-  // JSON file থেকে technologies এখানে রাখা হবে
-  // --------------------------------------------------
+  
 
   const [technologies, setTechnologies] = useState<Technology[]>([]);
 
 
-  // --------------------------------------------------
-  // Loading State
-  // Technology data load হওয়ার সময় এটি true থাকবে
-  // --------------------------------------------------
+ 
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
 
-  // --------------------------------------------------
-  // Error State
-  // Data load করতে সমস্যা হলে error এখানে থাকবে
-  // --------------------------------------------------
+  
 
   const [loadError, setLoadError] = useState<string | null>(null);
 
 
-  // --------------------------------------------------
-  // User Stack
-  // User যেসব technology select করবে
-  // সেগুলো এখানে রাখা হবে
-  // --------------------------------------------------
+  
 
   const [stack, setStack] = useState<StackItem[]>([]);
 
 
 
-  // ==================================================
-  // REMOVE URL HASH
-  // ==================================================
+  
 
   useEffect(() => {
 
@@ -75,21 +58,19 @@ export default function App() {
 
 
 
-  // ==================================================
-  // LOAD TECHNOLOGIES
-  // ==================================================
+  
 
   useEffect(() => {
 
     let isMounted = true;
 
-    // Data load শুরু
+    
     setIsLoading(true);
 
 
     fetch('/technologies.json')
 
-      // Response check
+      
       .then((res) => {
 
         if (!res.ok) {
@@ -105,7 +86,7 @@ export default function App() {
       })
 
 
-      // JSON data পাওয়া গেলে
+      
       .then((data: Technology[]) => {
 
         if (isMounted) {
@@ -119,7 +100,7 @@ export default function App() {
       })
 
 
-      // কোনো error হলে
+      
       .catch((err) => {
 
         console.error(
@@ -141,7 +122,7 @@ export default function App() {
       });
 
 
-    // Component unmount হলে
+    
     return () => {
 
       isMounted = false;
@@ -152,20 +133,18 @@ export default function App() {
 
 
 
-  // ==================================================
-  // ADD TECHNOLOGY TO STACK
-  // ==================================================
+  
 
   const handleAddToStack = (tech: Technology) => {
 
 
-    // Technology আগে থেকেই আছে কিনা check
+    
     const alreadyExists = stack.some(
       (item) => item.id === tech.id
     );
 
 
-    // যদি আগে থেকেই থাকে
+    
     if (alreadyExists) {
 
       toast.warning(
@@ -180,7 +159,7 @@ export default function App() {
     }
 
 
-    // নতুন Stack Item তৈরি
+    
     const newItem: StackItem = {
 
       ...tech,
@@ -190,14 +169,14 @@ export default function App() {
     };
 
 
-    // Stack এর মধ্যে নতুন item যোগ
+    
     setStack((prev) => [
       ...prev,
       newItem,
     ]);
 
 
-    // Success message
+    
     toast.success(
       `${tech.name} added to your stack!`
     );
@@ -206,21 +185,18 @@ export default function App() {
 
 
 
-  // ==================================================
-  // REMOVE ONE TECHNOLOGY
-  // ==================================================
+  
 
   const handleRemoveItem = (id: string) => {
 
 
-    // যে technology remove করা হচ্ছে
-    // সেটি খুঁজে বের করা
+    
     const removedTech = stack.find(
       (item) => item.id === id
     );
 
 
-    // Technology remove করা
+    
     setStack((prev) =>
       prev.filter(
         (item) => item.id !== id
@@ -228,7 +204,7 @@ export default function App() {
     );
 
 
-    // Remove হওয়ার notification
+    
     if (removedTech) {
 
       toast.info(
@@ -241,24 +217,22 @@ export default function App() {
 
 
 
-  // ==================================================
-  // REMOVE ALL TECHNOLOGIES
-  // ==================================================
+
 
   const handleRemoveAll = () => {
 
 
-    // Stack empty হলে কিছু করার দরকার নেই
+    
     if (stack.length === 0) {
       return;
     }
 
 
-    // সব technology remove
+    
     setStack([]);
 
 
-    // Notification
+    
     toast.info(
       'All technologies removed from your stack.'
     );
@@ -267,9 +241,7 @@ export default function App() {
 
 
 
-  // ==================================================
-  // PAGE LAYOUT
-  // ==================================================
+  
 
   return (
 
@@ -286,9 +258,6 @@ export default function App() {
     >
 
 
-      {/* ==================================================
-          TOAST NOTIFICATIONS
-      ================================================== */}
 
       <ToastContainer
         position="top-right"
@@ -300,17 +269,13 @@ export default function App() {
 
 
 
-      {/* ==================================================
-          NAVBAR
-      ================================================== */}
+      
 
       <Navbar />
 
 
 
-      {/* ==================================================
-          MAIN CONTENT
-      ================================================== */}
+
 
       <main className="flex-1 w-full">
 
@@ -320,10 +285,6 @@ export default function App() {
         <HeroBanner />
 
 
-
-        {/* ==================================================
-            TECHNOLOGIES SECTION
-        ================================================== */}
 
         <section
           id="technologies"
@@ -340,7 +301,7 @@ export default function App() {
         >
 
 
-          {/* Section Heading */}
+          
 
           <div className="mb-8 text-center">
 
@@ -379,15 +340,11 @@ export default function App() {
 
 
 
-          {/* ==================================================
-              LOADING / ERROR / DATA
-          ================================================== */}
+
 
           {isLoading ? (
 
-            // ------------------------------------------------
-            // 1. Loading State
-            // ------------------------------------------------
+
 
             <div
               id="loading-spinner-view"
@@ -430,9 +387,7 @@ export default function App() {
 
           ) : loadError ? (
 
-            // ------------------------------------------------
-            // 2. Error State
-            // ------------------------------------------------
+            
 
             <div
               className="
@@ -476,9 +431,7 @@ export default function App() {
 
           ) : (
 
-            // ------------------------------------------------
-            // 3. Successfully Loaded
-            // ------------------------------------------------
+            
 
             <div
               className="
@@ -491,9 +444,7 @@ export default function App() {
             >
 
 
-              {/* ==================================================
-                  TECHNOLOGY CARDS
-              ================================================== */}
+              
 
               <div className="lg:col-span-3">
 
@@ -511,7 +462,7 @@ export default function App() {
                   {technologies.map((tech) => {
 
 
-                    // Technology already selected কিনা
+                    
                     const isAdded = stack.some(
                       (item) => item.id === tech.id
                     );
@@ -536,10 +487,6 @@ export default function App() {
 
 
 
-              {/* ==================================================
-                  STACK SIDEBAR
-              ================================================== */}
-
               <div
                 id="stack-sidebar-container"
                 className="lg:col-span-1"
@@ -563,9 +510,7 @@ export default function App() {
 
 
 
-      {/* ==================================================
-          FOOTER
-      ================================================== */}
+
 
       <Footer />
 
